@@ -40,30 +40,33 @@
    <div class="card card-body"  style="padding:5px;">   
 
    <div class="row mr-auto container-fluid">
-       <div class="col-xs-3 col-sm-3 col-lg-3 col-xl-3 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
-           <h2  id="titleV" class="         container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd" >One(a)<h2>
-           <div id="scrolV" class="scrolV   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px">
-           <img id="imageV" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/01.jpg" alt="Photo1" > 
+
+       <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"      style="                                 padding:0px; margin:0px; border:5px solid #000000;">
+           <h2  id="titlePX" class="         container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd" >Major League Baseball O Pee Chee 10 cards with bubble gum  - Graded Estimate ($65 to $220) - Asking $165 .jpg</h2>
+           <div id="scrolPX" class="scrolP   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px">
+           <img id="imagePX" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/Major League Baseball O Pee Chee 10 cards with bubble gum  - Graded Estimate ($65 to $220) - Asking $165 .jpg" alt="Photo1" > 
            </div>
        </div>
-       <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 container-fluid"    style="                                 padding:0px; margin:0px; border:5px solid #000000;" >
+
+       <div class="mcol-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"    style="                                 padding:0px; margin:0px; border:5px solid #000000;" >
            <h2  id="titleM" class="         container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd" >Two(a)<h2>
            <div id="scrolM" class="scrolM   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px">
-           <img id="imageM" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/01.jpg" alt="Photo1" > 
+           <img id="imageM" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/PXL_20240902_202254943.jpg" alt="Photo1" > 
            </div>
        </div>
 
        <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"     style="                                 padding:0px; margin:0px; border:5px solid #000000;">
            <h2  id="titleP" class="         container-fluid text-center"    style="                                 padding:0px; margin:0px; background-color:#fadadd" >Three(a)<h2>
            <div id="scrolP" class="scrolP   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px">
-           <img id="imageP" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/01.jpg" alt="Photo1" > 
+           <img id="imageP" class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/PXL_20240903_195950945.MP.jpg" alt="Photo1" > 
            </div>
        </div>
 
+    </div></div>
 
-       <div id="wrapper"></div>
+    <div id="wrapper" class="card card-body"  style="padding:5px;">
 
-   </div></div>
+</div>
 
 
    <!------------------------------------------------------------------------------------------------------- -->
@@ -91,7 +94,7 @@ var saveR = [];
 getItem();
 
 async function getItem() {
-  const api_url = "https://api.github.com/repos/JohnMeistrell/karaokemusicapp/contents/";
+  const api_url = "https://api.github.com/repos/JohnMeistrell/Richie/contents/imagesRichie/";
   const response = await fetch(api_url);
   let objvalue = await response.json();
   console.log(objvalue);
@@ -100,33 +103,58 @@ async function getItem() {
 
   var codeBlock = ''; var colN = 0;
 
-  var E1rich  = '<div id="richie" class="card card-body"  style="padding:5px;">';   
   var E2row   = '<div class="row mr-auto container-fluid">';
-  var E3col   = '<div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"             style="padding:0px; margin:0px; border:5px solid #000000;">';
-  var E4itemB = '<h2  class="                                    container-fluid text-center" style="padding:0px; margin:0px; background-color:#fadadd">';
-  var E4itemE = '<h2>';
-  var E5divE  = '</div>';
+  var E3col   =    '<div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 container-fluid"             style="padding:0px; margin:0px; border:5px solid #000000;">';
+
+  var E4itemB =       '<h2  class="                                    container-fluid text-center" style="padding:0px; margin:0px; background-color:#fadadd">';
+  var E4itemE =       '</h2>';
+
+  var E5scrol =       '<div class="scrolP   container-fluid pre-scrollable" style="min-height: 390px;               padding:0px; margin:0px">'
+  var E6imagB =           '<img class="         container-fluid"                style="min-height: 100px; width:700px;  padding:0px; margin:0px" src="imagesRichie/'
+  var E6imagE =           '" alt="Photo1" > '
+  var E7divE  =       '</div>';
+
+  var E8divE  =    '</div>';
 
   saveR.forEach( s => { 
-
     console.log(s.name);
-
     colN = colN + 1;
-
     if (colN == 1 ) { codeBlock += E2row; console.log("ROW" + colN); }
 
-    codeBlock += E3col;
-    codeBlock += E4itemB;
-    codeBlock += s.name;
-    codeBlock += E4itemE;
-    codeBlock += E5divE;
+    codeBlock += E3col;    /* <div class="mcol-xs-5 col-sm-5 col-lg-5 col-xl-5 ... */
 
-    if (colN == 3 ) { codeBlock += E5divE; console.log("DIV" + colN); colN = 0; }
+    codeBlock += E4itemB;  /* <h2  id="titleM" class="         container-fluid ... */
+    codeBlock += s.name;   /* Card heading */
+    codeBlock += E4itemE;
+
+    codeBlock += E5scrol;  /* <div id="scrolP" class="scrolP   container-fluid ... */
+
+    codeBlock += E6imagB;  /* <img id="imageP" class="         container-fluid ... */
+    codeBlock += s.name;   /* Card photo */
+    codeBlock += E6imagE;
+
+    codeBlock += E7divE;
+    codeBlock += E7divE;
+
+
+    if (colN == 3 ) { codeBlock += E7divE; console.log("DIV" + colN); colN = 0; }
 
   } );
-  codeBlock += 	E5divE; 
+  codeBlock += 	E7divE; 
+
+const newNode = document.getElementById("wrapper");
+
   document.getElementById("wrapper").innerHTML = codeBlock
 
+
+/*
+
+  document.getElementById('wrapper').prepend('codeBlock');
+
+
+  var wobj = document.getElementById("wrapper");
+  wobj.insertBefore(newNode, referenceNode)
+*/
 
 }
 
