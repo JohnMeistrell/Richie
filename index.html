@@ -15,7 +15,7 @@
 <! ### WEB PAGE ###                                                                                                                 -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 
-<body style="background-color:#a56ca7">
+<body style="background-color:#a56ca7" onload = windowLoaded()" >
 
 <h3 class="text-center">Richie's Sports Memorabilia and Collectibles (TEST version)</h3>
 <br>
@@ -29,6 +29,8 @@
    <!------------------------------------------------------------------------------------------------------- -->
    <div class="card card-body" style="background-color:#feeb10; padding:5px;">
       <div class="dropdown">
+      <span class="text-nowrap bd-highlight font-weight-bolder">Contact selection:</span>
+      <button type= "button" class="btn border border-light btn-primary btn-all" id="contact" onclick="contactMeth(this);">Cell</button>
       <span class="text-nowrap bd-highlight font-weight-bolder">Selection:</span>
       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('01');">Cards</button>
       <button type= "button" class="btn border border-light btn-primary btn-all" onclick="getItem('02');">Boxes</button>
@@ -96,11 +98,32 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+
+function windowLoaded() 
+  {
+     const contactID = document.getElementById("contact");
+     var itsCell = 'Email;
+     if( screen.width <= 480 ) {
+         itsCell = 'Cell';
+     }
+     contactID.innerHTML = itsCell;
+   }
+</script>
+
+<script type="text/javascript">
 function Data(el)
  {
     var itemT =  el.name;
     window.alert(itemT);
 
+ } 
+</script>
+
+<script type="text/javascript">
+function contactMeth(e)
+ {
+    var contactSel = e.innerHTML;
+    if ( contactSel == 'Cell' ) { e.innerHTML = 'Email' } else { e.innerHTML = 'Cell' } 
  } 
 </script>
 
@@ -123,29 +146,6 @@ async function getItem() {
   var E4itemB =       '<h2  class="                                    container-fluid text-center" style="padding:0px; margin:0px; background-color:#fadadd">';
   var E4itemE =       '</h2>';
 
-  var useragent = navigator.userAgent.toLowerCase();
-  var E9phone = 'NoCell';
-  if ((useragent.indexOf("iPhone") != -1 || useragent.indexOf("Android") != -1 || useragent.indexOf("Blackberry") != -1 || useragent.indexOf("Mobile") != -1) && useragent.indexOf("iPad") == -1 && mob_url != "") {
-  var E9phone = 'Cell';
-  }
-
-  /*
-  var E9phone = 'Cell';
-  if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))) {
-  var E9phone = 'NoCell';
-  }
-
-if( useragent.search("iphone") )
-    ; // iphone
-else if( useragent.search("ipod") )
-    ; // ipod
-else if( useragent.search("android") )
-    ; // android
-etc
-
-
-
-*/
   var E9butMsg = "Click or press to for conversation with Richie about this item, then see your cell text message and press send. " + E9phone;
   var E9butB  =       '<button type= "button" class="btn border border-light btn-primary btn-all" name="'
   var E9butE  =       '" onclick="Data(this);">' + E9butMsg + '</button>'
@@ -156,7 +156,6 @@ etc
   var E7divE  =       '</div>';
 
   var E8divE  =    '</div>';
-
 
   /* Image from GitHub C DRIVE (start) -----------------------------------------------------------------*/
   if ( imageSource == "Laptop" ) {
