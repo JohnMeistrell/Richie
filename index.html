@@ -40,7 +40,7 @@
 
          <br>
          <span class="bd-highlight font-weight-bolder">Contact Richie by text: 732-619-9014 or email: 7326199014@vtext.com</span>
-         <button type= "button" class="btn border border-light btn-primary btn-all" id="contact" onclick="contactMeth(this);">Cell</button>
+         <button type= "button" class="btn border border-light btn-primary btn-none" id="contact" onclick="contactMeth(this);">Cell</button>
 
          <label id="status">Item list in progress...</label>
 
@@ -81,23 +81,67 @@
     <div id="wrapper" class="card card-body LIST"  style="padding:5px;">
     </div>
 
+
     <div class="card card-body CART "  style="padding:0px; margin:0px; border:0px; "> 
        <div class="row mr-auto container-fluid collapseX ccX multi-collapse-Cart .multi-collapse-Cart show"> 
        <h2                       class="         container-fluid text-center collapseX ccX multi-collapse-Cart .multi-collapse-Cart show" style=" padding:0px; margin:0px; border:5px solid #000000; background-color:#6ca7a5;" >CART</h2>
        </div>
+
+       <div class="card card-body" style="background-color:#feeb10; padding:5px;">
+          <div class="dropdown">
+
+            <a type="button" class="btn border border-light btn-primary btn-none" type= "button" href="" onclick="sendOrder(this)"   >Checkout</a>
+
+             <span   class="text-nowrap bd-highlight font-weight-bolder"               ></span>
+             <label id="order">An email will be produced for your order. Please press SEND on that email. Thank you.</label>
+          </div>
+       </div>
+
        <div class="row mr-auto container-fluid collapseX ccX multi-collapse-Cart .multi-collapse-Cart show" >
            <ol id="wrapper3" class="list-group list-group-numbered"> 
           </ol> 
        </div>
+
+<a type="button" class="btn border border-light btn-primary btn-all" 
+   href="sms:9082357304?&amp;body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg">Buy-Text</a>
+
+<a type="button" class="btn border border-light btn-primary btn-all emailcell" 
+href="https://mail.google.com/mail/u/1/?ui=2&amp;fs=1&amp;tf=cm&amp;to=9082357304@vtext.com&amp;su=Purchase Request from Richies Sports Memorabilia and Collectibles&amp;body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg" target="_blank">Buy-eMail</a>
+
     </div>
+
+
+
+
+
 
     <div class="card card-body FOOT" style="background-color:#feeb10; padding:5px;">
         <div class="text-center">                                                                    Website designed by 
-        <a target="_blank" href="mailto:JohnnyM78.NJ@gmail.com"                                     >John Meistrell NJ (Ver1.4)</a>
+        <a target="_blank" href="mailto:JohnnyM78.NJ@gmail.com"                                     >John Meistrell NJ (Ver1.5)</a>
        </div>
     </div>
 
 </div></div>
+
+
+            <form id="gform" method="POST" 
+action="https://mail.google.com/mail/u/1/?ui=2&amp;fs=1&amp;tf=cm&amp;to=9082357304@vtext.com&amp;su=Purchase Request from Richies&amp;body=Hello Richie, I ing $52.jpg">
+
+              <div class="col-12">
+                <div data-mdb-input-init class="form-outline">
+                  <input type="text" id="form1" class="form-control" />
+                  <label class="form-label" for="form1">Enter a task here</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Save</button>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning">Get tasks</button>
+              </div>
+            </form>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -124,12 +168,44 @@ function Data(el,eItem)
  } 
 </script>
 
+
+<script type="text/javascript">
+function sendOrder(e)
+ {
+
+
+     const contactID = document.getElementById("contact");
+     contactMeth =  contactID.innerHTML ;
+
+     if( contactMeth == 'Email') {
+         e.href = "https://mail.google.com/mail/u/1/?ui=2&fs=1&tf=cm&to=9082357304@vtext.com&su=Purchase Request from Richies Sports Memorabilia and Collectibles&body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg";
+     }
+     else {
+         e.href = "sms:9082357304?&amp;body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg";
+     }
+
+/* event.preventDefault(); 
+
+*/
+
+ } 
+</script>
+
+
+
+
 <script type="text/javascript">
 function contactMeth(e)
  {
     var contactSel = e.innerHTML;
-    if ( contactSel == 'Cell' ) { e.innerHTML = 'Email' } else { e.innerHTML = 'Cell' } 
-
+    if ( contactSel == 'Cell' ) 
+       { e.innerHTML = 'Email' ;
+         document.getElementById('order').innerHTML = 'An email will be produced for your order. Please press SEND on that email. Thank you.';
+       } 
+    else 
+       { e.innerHTML = 'Cell' ;
+         document.getElementById('order').innerHTML = 'A text message will be produced for your order. Please press SEND on your cell phone. Thank you.';
+       } 
 
 
 /*
@@ -145,9 +221,7 @@ var divsToHide = document.getElementsByClassName("classname"); //divsToHide is a
 */
 
 
-document.querySelectorAll('.emailcell').forEach(function(el) {
-   el.style.display = 'none';
-});
+
 
 
 
@@ -163,13 +237,8 @@ function AddCart(e,action,item)
 var CartA  = '<li class="list-group-item">';
 var CartB = '<button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger" onclick="return this.parentNode.remove();" >Remove</button><img src="imagesRichie/';
 var CartB = '<button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger" onclick="return this.parentNode.remove();" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi  bi-trash3" viewBox="0 0 16 16"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/></svg>Remove</button><img src="imagesRichie/';
-
-
-
-
-
 var CartC = item ; /* Promo - Mugs - $10.jpg */
-var CartD = '" alt="avatar 1" style="width: 45px; height: auto;"><span class="ms-2">';
+var CartD = '" alt="avatar 1" style="width: 120px; height: 40px; object-fit: cover; padding:0px; margin:0px; border:3px solid #000000;"><span class="ms-2">'; 
 var CartE = action + ": " + item ; /* ASK: Ball - New York Yankees */
 var CartF = '</span></li>';
 
@@ -180,7 +249,6 @@ CartItem += CartC;
 CartItem += CartD;
 CartItem += CartE;
 CartItem += CartF;
-
 
 
 console.log(CartItem);
