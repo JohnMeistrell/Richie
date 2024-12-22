@@ -117,7 +117,7 @@ href="https://mail.google.com/mail/u/1/?ui=2&amp;fs=1&amp;tf=cm&amp;to=908235730
 
     <div class="card card-body FOOT" style="background-color:#feeb10; padding:5px;">
         <div class="text-center">                                                                    Website designed by 
-        <a target="_blank" href="mailto:JohnnyM78.NJ@gmail.com"                                     >John Meistrell NJ (Ver1.6)</a>
+        <a target="_blank" href="mailto:JohnnyM78.NJ@gmail.com"                                     >John Meistrell NJ (Ver1.7)</a>
        </div>
     </div>
 
@@ -181,10 +181,12 @@ function sendOrder(e)
          e.href = "https://mail.google.com/mail/u/1/?ui=2&fs=1&tf=cm&to=9082357304@vtext.com&su=Purchase Request from Richies Sports Memorabilia and Collectibles&body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg";
      }
      else {
-         e.href = "sms:9082357304?&;body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg";
+         e.href = "sms:9082357304?&body=Hello Richie, I would like to buy Basketball - Locker Room Series  - Graded Estimate ($10 to $90) - Asking $52.jpg";
+
      }
 
 console.log(e);
+window.alert(e.href);
 
 /* event.preventDefault(); 
 
